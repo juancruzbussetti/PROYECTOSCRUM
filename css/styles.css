@@ -1,86 +1,846 @@
+
+/* =====================================
+   VARIABLES GLOBALES - ROLLING CODE
+===================================== */
+
 :root {
-  --rc-red: #e0202a;
-  --rc-red-dark: #a50d14;
-  --rc-red-deep: #6e070c;
-  --rc-black: #0b0b0c;
-  --rc-surface: #111113;
-  --rc-surface-2: #26262a;
-  --rc-border: #2c2c31;
-  --rc-white: #ffffff;
-  --rc-text-soft: #d4d4d8;
-  --rc-text-mute: #a1a1aa;
-  --rc-gradient: linear-gradient(160deg, #e0202a 0%, #a50d14 55%, #6e070c 100%);
-  /* Así le decís a Bootstrap que use tus colores */
-  --bs-body-bg: var(--rc-black);
-  --bs-body-color: var(--rc-white);
-  --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    --rc-red: #e0202a;
+    --rc-red-dark: #a50d14;
+    --rc-red-deep: #6e070c;
+
+    --rc-black: #0b0b0c;
+    --rc-surface: #111113;
+    --rc-surface-2: #26262a;
+    --rc-border: #2c2c31;
+
+    --rc-white: #ffffff;
+    --rc-text-soft: #d4d4d8;
+    --rc-text-mute: #a1a1aa;
+
+    --rc-gradient: linear-gradient(
+        160deg,
+        #e0202a 0%,
+        #a50d14 55%,
+        #6e070c 100%
+    );
+
+    --bs-body-bg: var(--rc-black);
+    --bs-body-color: var(--rc-white);
+    --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--rc-black);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--rc-black);
+    color: var(--rc-white);
+    font-family: var(--bs-body-font-family);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: var(--rc-black);
+    z-index: -1;
+    pointer-events: none;
+}
+
+main {
+    width: 100%;
 }
 
 .container {
-  max-width: 1200px;
+    width: 100%;
+    max-width: 1200px;
 }
 
+/* =====================================
+   CONTENEDOR PRINCIPAL
+   ANCHO MÁXIMO: 1200 PX
+===================================== */
+
+.workshop-container {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 48px auto 20px;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* =====================================
+   BLOQUE ROJO PRINCIPAL
+   PANTALLA 1440 PX: ANCHO 1312 PX
+===================================== */
+
+.workshop-hero {
+    width: calc(100% + 112px);
+    margin-left: -56px;
+    padding: 32px;
+    background: var(--rc-gradient);
+    border-radius: 40px;
+}
+
+/* COLUMNAS BOOTSTRAP */
+
+.workshop-hero .row {
+    --bs-gutter-x: 24px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* =====================================
+   COLUMNA IZQUIERDA
+===================================== */
+
+.hero-content {
+    min-width: 0;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--rc-white);
+    font-size: 15px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.eyebrow span {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.eyebrow strong {
+    font-weight: 800;
+}
+
+/* TÍTULO PRINCIPAL */
+
+.workshop-hero h1 {
+    margin: 0 0 13px;
+    color: var(--rc-white);
+    font-size: 48px;
+    line-height: 0.99;
+    letter-spacing: -2px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.workshop-hero h1 span {
+    color: var(--rc-black);
+}
+
+/* DESCRIPCIÓN */
+
+.hero-description {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 0 19px;
+    color: var(--rc-white);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* =====================================
+   BOTONES PRINCIPALES
+===================================== */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-buy,
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn-buy {
+    color: var(--rc-white);
+    background-color: var(--rc-black);
+    border: 2px solid var(--rc-black);
+}
+
+.btn-buy:hover {
+    color: var(--rc-white);
+    background-color: var(--rc-surface-2);
+    border-color: var(--rc-surface-2);
+}
+
+.btn-outline {
+    color: var(--rc-white);
+    background-color: transparent;
+    border: 2px solid var(--rc-white);
+}
+
+.btn-outline:hover {
+    color: var(--rc-red-dark);
+    background-color: var(--rc-white);
+    border-color: var(--rc-white);
+}
+
+/* =====================================
+   COLUMNA DERECHA
+===================================== */
+
+.event-column {
+    min-width: 0;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+/* =====================================
+   TARJETA NEGRA DEL EVENTO
+===================================== */
+
+.event-card {
+    width: 100%;
+    padding: 24px;
+    color: var(--rc-white);
+    background-color: var(--rc-black);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 32px;
+}
+
+/* FILAS DE FECHA, UBICACIÓN Y ENTRADAS */
+
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+    border-bottom: 1px solid var(--rc-border);
+}
+
+/* ICONOS SVG */
+
+.event-icon {
+    display: block;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    color: var(--rc-red);
+}
+
+/* INFORMACIÓN DEL EVENTO */
+
+.event-info {
+    min-width: 0;
+}
+
+.event-item h2,
+.event-item h3,
+.event-item p {
+    margin: 0;
+}
+
+/* FECHA */
+
+.event-item h2 {
+    color: var(--rc-white);
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+/* HORA */
+
+.event-item .event-time {
+    margin-top: 2px;
+    color: var(--rc-text-soft);
+    font-size: 23px;
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+/* UBICACIÓN Y PRECIO */
+
+.event-item h3 {
+    color: var(--rc-white);
+    font-size: 12px;
+    line-height: 1.35;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.event-item p:not(.event-time) {
+    margin-top: 2px;
+    color: var(--rc-text-mute);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* FILA DE ENTRADAS */
+
+.event-item.event-ticket {
+    padding-bottom: 0;
+    margin-bottom: 13px;
+    border-bottom: none;
+}
+
+/* =====================================
+   ETIQUETAS DE MODALIDAD
+===================================== */
+
+.event-tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.event-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    color: var(--rc-text-soft);
+    background-color: transparent;
+    border: 1px solid var(--rc-border);
+    border-radius: 999px;
+    font-size: 8px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.event-tags .tag-limited {
+    color: var(--rc-white);
+    background-color: var(--rc-red);
+    border-color: var(--rc-red);
+}
+
+/* =====================================
+   ESTADÍSTICAS INFERIORES
+===================================== */
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    margin: 24px 0 0;
+    padding: 24px;
+    color: var(--rc-white);
+    background-color: var(--rc-surface);
+    border: 1px solid var(--rc-border);
+    border-radius: 28px;
+}
+
+.stat {
+    min-width: 0;
+}
+
+.stat h2 {
+    margin: 0 0 3px;
+    color: var(--rc-red);
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.stat p {
+    margin: 0;
+    color: var(--rc-text-mute);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* =====================================
+   AGENDA
+===================================== */
+
 .sectionAgenda {
-  padding: 96px;
-  display: flex;
-  gap: 100px;
-    & .agendaLeft {
-      width: 40%;
-      span {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--rc-red);
-        letter-spacing: 2px;
-      }
-      h2 {
-        font-size: 56px;
-        font-weight: 800;
-        line-height: 1.05;
-        letter-spacing: -1px;
-      }
-      p {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.55;
-        color: var(--rc-text-soft);
-      }
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 96px auto;
+    padding: 0;
+    color: var(--rc-white);
+}
+
+.agendaLeft {
+    flex: 0 0 32%;
+    min-width: 0;
+}
+
+.agendaLeft > span {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--rc-red);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.agendaLeft h2 {
+    margin: 0;
+    color: var(--rc-white);
+    font-size: 34px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.agendaLeft p {
+    margin-top: 18px;
+    color: var(--rc-text-mute);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.agendaRight {
+    flex: 1;
+    min-width: 0;
+}
+
+/* FILAS DE LA AGENDA */
+
+.conteinerLine,
+.conteinerLineEnd {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--rc-border);
+}
+
+.conteinerLineEnd {
+    border-bottom: none;
+}
+
+.horarioCharla {
+    flex: 0 0 62px;
+    color: var(--rc-red);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.temaCharla {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.temaCharla span:first-child {
+    color: var(--rc-white);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.temaCharla span + span {
+    color: var(--rc-text-mute);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* =====================================
+   SECCIONES FUTURAS
+===================================== */
+
+.sectionPrecios,
+.sectionPagos,
+.sectionUbicacion {
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* =====================================
+   FORMULARIOS - ESTILOS BASE
+===================================== */
+
+input,
+select,
+textarea {
+    max-width: 100%;
+    font-family: inherit;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select {
+    min-height: 48px;
+    padding: 0 16px;
+    color: var(--rc-white);
+    background-color: var(--rc-surface);
+    border: 2px solid #d4d4d8;
+    border-radius: 14px;
+}
+
+textarea {
+    padding: 14px 16px;
+    color: var(--rc-white);
+    background-color: var(--rc-surface);
+    border: 2px solid #d4d4d8;
+    border-radius: 14px;
+}
+
+button {
+    font-family: inherit;
+}
+
+button:not(.btn-close) {
+    cursor: pointer;
+}
+
+/* =====================================
+   RESPONSIVE - TABLETS
+===================================== */
+
+@media (max-width: 1247px) {
+    .workshop-container {
+        width: calc(100% - 48px);
+        max-width: 1200px;
+        margin: 48px auto 20px;
     }
-    & .agendaRight {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      .conteinerLine {
-        border-top: 1px solid var(--rc-border);
-        display: flex;
-        gap: 50px;
-        padding-top: 15px;
-      }
-      .conteinerLineEnd {
-        border-top: 1px solid var(--rc-border);
-        border-bottom: 1px solid var(--rc-border);
-        display: flex;
-        gap: 50px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-      }
-      .horarioCharla {
-        font-variant-numeric: tabular-nums;
-        text-align: left;
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--rc-red);
-      }
-      .temaCharla {
-        display: flex;
-        flex-direction: column;
+
+    .workshop-hero {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+    }
+
+    .sectionAgenda,
+    .sectionPrecios,
+    .sectionPagos,
+    .sectionUbicacion {
+        width: calc(100% - 48px);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .workshop-container {
+        margin-top: 40px;
+    }
+
+    .workshop-hero {
+        padding: 24px;
+    }
+
+    .workshop-hero h1 {
+        font-size: 36px;
+        white-space: normal;
+    }
+
+    .hero-content {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .event-column {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .event-card {
+        padding: 18px;
+    }
+
+    .event-item {
+        gap: 9px;
+    }
+
+    .event-item .event-time {
+        font-size: 21px;
+    }
+
+    .event-item h3 {
+        font-size: 11px;
+    }
+
+    .event-tags {
+        gap: 5px;
+    }
+
+    .event-tags span {
+        padding: 5px 7px;
+        font-size: 8px;
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sectionAgenda {
+        gap: 24px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .agendaLeft {
+        flex-basis: 35%;
+    }
+
+    .agendaLeft h2 {
+        font-size: 29px;
+    }
+}
+
+/* =====================================
+   RESPONSIVE - CELULARES
+===================================== */
+
+@media (max-width: 767.98px) {
+    .workshop-container {
+        width: calc(100% - 48px);
+        margin: 32px auto 20px;
+    }
+
+    /* MÁRGENES LATERALES DE 24 PX */
+
+    .workshop-hero {
+        width: 100%;
+        margin-left: 0;
+        padding: 24px;
+        border-radius: 32px;
+    }
+
+    .workshop-hero .row {
+        --bs-gutter-x: 0;
+    }
+
+    /* APILAR LAS COLUMNAS */
+
+    .workshop-hero .hero-content,
+    .workshop-hero .event-column {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .hero-content {
+        margin-bottom: 24px;
+    }
+
+    .eyebrow {
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .workshop-hero h1 {
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1;
+        letter-spacing: -1px;
+        white-space: normal;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        gap: 8px;
+    }
+
+    .btn-buy,
+    .btn-outline {
+        min-height: 52px;
+        padding: 0 16px;
+        font-size: 10px;
+    }
+
+    .event-card {
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .event-item {
+        gap: 10px;
+    }
+
+    .event-item .event-time {
+        font-size: 21px;
+    }
+
+    .event-item h3 {
+        font-size: 11px;
+    }
+
+    .event-item p:not(.event-time) {
+        font-size: 10px;
+    }
+
+    .event-tags {
+        gap: 6px;
+    }
+
+    .event-tags span {
+        padding: 6px 9px;
+        font-size: 8px;
+    }
+
+    /* ESTADÍSTICAS */
+
+    .stats-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 16px;
+        margin-top: 24px;
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .stat h2 {
         font-size: 22px;
-        font-weight: 600;
-        & span:nth-child(2) {
-          font-size: 14px;
-          font-weight: 400;
-          color: var(--rc-text-soft);
-        }
-      }
+    }
+
+    .stat p {
+        font-size: 10px;
+    }
+
+    /* AGENDA */
+
+    .sectionAgenda {
+        flex-direction: column;
+        gap: 24px;
+        margin: 80px auto;
+    }
+
+    .agendaLeft {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .agendaLeft h2 {
+        font-size: 30px;
+    }
+
+    .agendaLeft p {
+        font-size: 13px;
+    }
+
+    .agendaRight {
+        width: 100%;
+    }
+
+    .conteinerLine,
+    .conteinerLineEnd {
+        gap: 16px;
+        padding: 16px 0;
+    }
+
+    .horarioCharla {
+        flex-basis: 55px;
+        font-size: 12px;
+    }
+
+    .temaCharla span:first-child {
+        font-size: 13px;
+    }
+
+    .temaCharla span + span {
+        font-size: 11px;
+    }
+
+    .sectionPrecios,
+    .sectionPagos,
+    .sectionUbicacion {
+        width: calc(100% - 48px);
+    }
+}
+
+/* =====================================
+   RESPONSIVE - CELULARES PEQUEÑOS
+===================================== */
+
+@media (max-width: 400px) {
+    .workshop-container {
+        width: calc(100% - 48px);
+        padding: 0;
+    }
+
+    .workshop-hero {
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .workshop-hero h1 {
+        font-size: 29px;
+    }
+
+    .event-card {
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .event-item {
+        gap: 8px;
+    }
+
+    .event-icon {
+        flex-basis: 19px;
+        width: 19px;
+        height: 19px;
+    }
+
+    .event-item h2 {
+        font-size: 14px;
+    }
+
+    .event-item .event-time {
+        font-size: 19px;
+    }
+
+    .stats-section {
+        gap: 16px 10px;
+        padding: 16px;
+    }
+
+    .stat h2 {
+        font-size: 20px;
+    }
+
+    .sectionAgenda,
+    .sectionPrecios,
+    .sectionPagos,
+    .sectionUbicacion {
+        width: calc(100% - 48px);
+    }
+
+    .agendaLeft h2 {
+        font-size: 27px;
     }
 }
