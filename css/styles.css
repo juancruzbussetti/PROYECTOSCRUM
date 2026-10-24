@@ -19,6 +19,38 @@
 .container {
   max-width: 1200px;
 }
+.navbar {
+  padding: 20px 70px 20px 70px;
+  border-bottom: 0.5px solid var(--rc-border);
+ }
+.navbar img {
+  width: 150px;
+  height: 40px;
+}
+.navbar .navbar-nav {
+  gap: 20px;
+}
+.navbar .nav-link {
+  --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--rc-white);
+  padding: 10px 20px 20px 50px ;
+}
+.navbar .nav-link.active {
+  
+  color: var(--rc-white);
+}
+.navbar .nav-link2 {
+  padding: 10px 20px ;
+  font-size: small;
+  color: var(--rc-rosaclaro) ;
+  text-decoration: none;
+  border-radius: 20px;
+  background-color: var(--rc-red);
+font-size: 14px;
+
+}
 
 .sectionAgenda {
   padding: 96px;
