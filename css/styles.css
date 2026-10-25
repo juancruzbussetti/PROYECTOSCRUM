@@ -31,362 +31,6 @@
 
 /* =====================================
    CONFIGURACIÓN GENERAL
-===================================== */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: var(--rc-black);
-}
-
-body {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: var(--rc-black);
-    color: var(--rc-white);
-    font-family: var(--bs-body-font-family);
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: var(--rc-black);
-    z-index: -1;
-    pointer-events: none;
-}
-
-main {
-    width: 100%;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* =====================================
-   CONTENEDOR PRINCIPAL
-   ANCHO MÁXIMO: 1200 PX
-===================================== */
-
-.workshop-container {
-    display: block;
-    width: 100%;
-    max-width: 1200px;
-    margin: 48px auto 20px;
-    padding: 0;
-    background-color: transparent;
-}
-
-/* =====================================
-   BLOQUE ROJO PRINCIPAL
-   PANTALLA 1440 PX: ANCHO 1312 PX
-===================================== */
-
-.workshop-hero {
-    width: calc(100% + 112px);
-    margin-left: -56px;
-    padding: 32px;
-    background: var(--rc-gradient);
-    border-radius: 40px;
-}
-
-/* COLUMNAS BOOTSTRAP */
-
-.workshop-hero .row {
-    --bs-gutter-x: 24px;
-    margin-right: 0;
-    margin-left: 0;
-}
-
-/* =====================================
-   COLUMNA IZQUIERDA
-===================================== */
-
-.hero-content {
-    min-width: 0;
-    padding-right: 12px;
-    padding-left: 12px;
-}
-
-.eyebrow {
-    margin: 0 0 12px;
-    color: var(--rc-white);
-    font-size: 15px;
-    line-height: 1.4;
-    white-space: nowrap;
-}
-
-.eyebrow span {
-    font-style: italic;
-    font-weight: 400;
-}
-
-.eyebrow strong {
-    font-weight: 800;
-}
-
-/* TÍTULO PRINCIPAL */
-
-.workshop-hero h1 {
-    margin: 0 0 13px;
-    color: var(--rc-white);
-    font-size: 48px;
-    line-height: 0.99;
-    letter-spacing: -2px;
-    font-weight: 800;
-    white-space: nowrap;
-}
-
-.workshop-hero h1 span {
-    color: var(--rc-black);
-}
-
-/* DESCRIPCIÓN */
-
-.hero-description {
-    width: 100%;
-    max-width: 390px;
-    margin: 0 0 19px;
-    color: var(--rc-white);
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-/* =====================================
-   BOTONES PRINCIPALES
-===================================== */
-
-.hero-buttons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.btn-buy,
-.btn-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 52px;
-    padding: 0 20px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 800;
-    text-decoration: none;
-    white-space: nowrap;
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.btn-buy {
-    color: var(--rc-white);
-    background-color: var(--rc-black);
-    border: 2px solid var(--rc-black);
-}
-
-.btn-buy:hover {
-    color: var(--rc-white);
-    background-color: var(--rc-surface-2);
-    border-color: var(--rc-surface-2);
-}
-
-.btn-outline {
-    color: var(--rc-white);
-    background-color: transparent;
-    border: 2px solid var(--rc-white);
-}
-
-.btn-outline:hover {
-    color: var(--rc-red-dark);
-    background-color: var(--rc-white);
-    border-color: var(--rc-white);
-}
-
-/* =====================================
-   COLUMNA DERECHA
-===================================== */
-
-.event-column {
-    min-width: 0;
-    padding-right: 12px;
-    padding-left: 12px;
-}
-
-/* =====================================
-   TARJETA NEGRA DEL EVENTO
-===================================== */
-
-.event-card {
-    width: 100%;
-    padding: 24px;
-    color: var(--rc-white);
-    background-color: var(--rc-black);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 32px;
-}
-
-/* FILAS DE FECHA, UBICACIÓN Y ENTRADAS */
-
-.event-item {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    padding-bottom: 13px;
-    margin-bottom: 13px;
-    border-bottom: 1px solid var(--rc-border);
-}
-
-/* ICONOS SVG */
-
-.event-icon {
-    display: block;
-    flex: 0 0 22px;
-    width: 22px;
-    height: 22px;
-    color: var(--rc-red);
-}
-
-/* INFORMACIÓN DEL EVENTO */
-
-.event-info {
-    min-width: 0;
-}
-
-.event-item h2,
-.event-item h3,
-.event-item p {
-    margin: 0;
-}
-
-/* FECHA */
-
-.event-item h2 {
-    color: var(--rc-white);
-    font-size: 16px;
-    line-height: 1.2;
-    font-weight: 800;
-}
-
-/* HORA */
-
-.event-item .event-time {
-    margin-top: 2px;
-    color: var(--rc-text-soft);
-    font-size: 23px;
-    line-height: 1.1;
-    font-weight: 400;
-}
-
-/* UBICACIÓN Y PRECIO */
-
-.event-item h3 {
-    color: var(--rc-white);
-    font-size: 12px;
-    line-height: 1.35;
-    font-weight: 800;
-    overflow-wrap: anywhere;
-}
-
-.event-item p:not(.event-time) {
-    margin-top: 2px;
-    color: var(--rc-text-mute);
-    font-size: 10px;
-    line-height: 1.4;
-}
-
-/* FILA DE ENTRADAS */
-
-.event-item.event-ticket {
-    padding-bottom: 0;
-    margin-bottom: 13px;
-    border-bottom: none;
-}
-
-/* =====================================
-   ETIQUETAS DE MODALIDAD
-===================================== */
-
-.event-tags {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-
-.event-tags span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 9px;
-    color: var(--rc-text-soft);
-    background-color: transparent;
-    border: 1px solid var(--rc-border);
-    border-radius: 999px;
-    font-size: 8px;
-    line-height: 1.2;
-    font-weight: 700;
-}
-
-.event-tags .tag-limited {
-    color: var(--rc-white);
-    background-color: var(--rc-red);
-    border-color: var(--rc-red);
-}
-
-/* =====================================
-   ESTADÍSTICAS INFERIORES
-===================================== */
-
-.stats-section {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-    margin: 24px 0 0;
-    padding: 24px;
-    color: var(--rc-white);
-    background-color: var(--rc-surface);
-    border: 1px solid var(--rc-border);
-    border-radius: 28px;
-}
-
-.stat {
-    min-width: 0;
-}
-
-.stat h2 {
-    margin: 0 0 3px;
-    color: var(--rc-red);
-    font-size: 24px;
-    line-height: 1.1;
-    font-weight: 800;
-}
-
-.stat p {
-    margin: 0;
-    color: var(--rc-text-mute);
-    font-size: 10px;
-    line-height: 1.5;
-}
-
-/* =====================================
-   AGENDA
-===================================== */
 
 .sectionAgenda {
     display: flex;
@@ -844,3 +488,249 @@ button:not(.btn-close) {
         font-size: 27px;
     }
 }
+
+/* FIN SECCION AGENDA */
+
+/* INICIO SECCION PASARELA DE PAGOS */
+.sectionPay{
+  padding-bottom: 96px;
+}
+.containerPay {
+  width: 1312px;
+  background: linear-gradient(160deg,#e0202a 0%, #a50d14 55%, #6e070c 100%);
+  margin-inline: auto;
+  padding: 56px;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  & .secureBuy{
+    display: flex;
+    justify-content: space-between;
+      & div:first-child{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        span{
+          font-size: 18px;
+          font-weight: 800;
+          letter-spacing: 1.55px;
+        }
+        h2{
+          font-size: 64px;
+          font-weight: 800;
+          line-height: 1.03;
+          letter-spacing: -1px;
+        }
+      }
+      & div:last-child{
+        display: flex;
+        align-items: end;
+        gap: 10px;
+          & button {
+            border-radius: 999px;
+            padding: 5px 15px 5px 15px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid var(--rc-white);
+            font-size: 16px;
+            font-weight: 800;
+            &:hover{
+              background-color: var(--rc-black);
+            }
+          }
+      }
+  }
+  & .downPay{
+    display: flex;
+    gap: 24px;
+    & .Entry{
+      width: 60%;
+      padding: 30px;
+      background-color:var(--rc-white);
+      color: var(--rc-black);
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      & h3{
+          font-size: 25px;
+          font-weight: 800;
+      }
+      & .option {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & .optionEntry{
+          display: flex;
+          border: 1px solid var(--rc-black);
+          border-radius: 20px;
+          border: 2px solid var(--rc-text-soft);
+          padding: 12px;
+          justify-content: space-between;
+          align-items: center;
+          & div:first-child{
+            display: flex;
+            flex-direction: column;
+            & .titleOption{
+              font-size: 18px;
+              font-weight: 800;
+            }
+            & .descriptionOption{
+              font-size: 14px;
+              font-weight: 400;
+              color: var(--rc-text-mute);
+            }
+          }
+          & div:last-child{
+            .priceOption{
+              font-size: 20px;
+              font-weight: 800;
+            }
+          }
+          &:hover{
+            background-color: var(--rc-black);
+            & .titleOption,
+            & .priceOption{
+              color: var(--rc-white);
+            }
+          }
+        }
+      }
+      & .cantEntry{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0 5px 0;
+        & div:first-child{
+          font-size: 16px;
+          font-weight: 800;
+          display: flex;
+          align-items: center;
+        }
+        & div:last-child{
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          & button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: transparent;
+            color: var(--rc-black);
+            border: 1px solid var(--rc-text-mute);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & span{
+              font-size: 22px;
+              font-weight: 800;
+            }
+          }
+          & span{
+              font-size: 22px;
+              font-weight: 800;
+          }
+        }
+      }
+      & .continueEntry{
+        background-color: var(--rc-black);
+        color: var(--rc-white);
+        height: 60px;
+        border-radius: 999px;
+        font-size: 18px;
+        font-weight: 800;
+        border: none;
+      }
+      .spanEntry{
+        padding-top: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--rc-text-mute);
+        display: flex;
+        align-items: center;
+      }
+    }
+    & .Order{
+      width: 40%;
+      height: 50%;
+      padding: 30px;
+      background-color: var(--rc-black);
+      border-radius: 28px;
+      & .upOrder{
+        & div:first-child{
+          color: var(--rc-red);
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1.55px;
+          padding-bottom: 10px;
+        }
+        & div:last-child{
+          h3{
+            font-size: 22px;
+            font-weight: 800;
+          }
+          p{
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--rc-text-mute);
+          }
+        }
+      }
+      & .centerOrder{
+        border-top: 1px solid var(--rc-border);
+        border-bottom: 1px solid var(--rc-border);
+        padding: 20px 0 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        & div{
+          display: flex;
+          justify-content: space-between;
+          font-size: 16px;
+          font-weight: 400;
+          letter-spacing: -0.5px;
+        }
+        & .serviceCharge{
+              color: var(--rc-text-mute);
+        }
+      }
+      & .downOrder{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        & div:first-child{
+          padding-top: 10px;
+          display: flex;
+          justify-content: space-between;
+          & .totalDownOrder{
+            font-size: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: end;
+          }
+          & .priceDownOrder{
+            font-size: 30px;
+            font-weight: 800;
+          }
+        }
+        & div:last-child{
+          display: flex;
+          gap: 10px;
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--rc-text-mute);
+          align-items: center;
+          svg{
+            color: var(--rc-red);
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+/* FIN SECCION PASARELA DE PAGOS */
