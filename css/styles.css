@@ -57,6 +57,12 @@ font-size: 14px;
 
 /* INICIO SECCION AGENDA */
 
+/* .container {
+  max-width: 1200px;
+} */
+
+/* INICIO SECCION AGENDA */
+
 .sectionAgenda {
   padding: 96px;
   display: flex;
@@ -1138,4 +1144,3 @@ font-size: 14px;
 
 /* =========================================
    FIN SECCIÓN SPEAKERS
-========================================= */
