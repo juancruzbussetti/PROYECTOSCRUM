@@ -1,3 +1,88 @@
+:root {
+  --rc-red: #e0202a;
+  --rc-red-dark: #a50d14;
+  --rc-red-deep: #6e070c;
+  --rc-black: #0b0b0c;
+  --rc-surface: #111113;
+  --rc-surface-2: #26262a;
+  --rc-border: #2c2c31;
+  --rc-white: #ffffff;
+  --rc-text-soft: #d4d4d8;
+  --rc-text-mute: #a1a1aa;
+  --rc-gradient: linear-gradient(160deg, #e0202a 0%, #a50d14 55%, #6e070c 100%);
+  /* Así le decís a Bootstrap que use tus colores */
+  --bs-body-bg: var(--rc-black);
+  --bs-body-color: var(--rc-white);
+  --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.sectionAgenda {
+  padding: 96px;
+  display: flex;
+  gap: 100px;
+    & .agendaLeft {
+      width: 40%;
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--rc-red);
+        letter-spacing: 2px;
+      }
+      h2 {
+        font-size: 56px;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -1px;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: var(--rc-text-soft);
+      }
+    }
+    & .agendaRight {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .conteinerLine {
+        border-top: 1px solid var(--rc-border);
+        display: flex;
+        gap: 50px;
+        padding-top: 15px;
+      }
+      .conteinerLineEnd {
+        border-top: 1px solid var(--rc-border);
+        border-bottom: 1px solid var(--rc-border);
+        display: flex;
+        gap: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .horarioCharla {
+        font-variant-numeric: tabular-nums;
+        text-align: left;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--rc-red);
+      }
+      .temaCharla {
+        display: flex;
+        flex-direction: column;
+        font-size: 22px;
+        font-weight: 600;
+        & span:nth-child(2) {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--rc-text-soft);
+        }
+      }
+    }
 
 /* =====================================
    VARIABLES GLOBALES - ROLLING CODE
