@@ -1,127 +1,491 @@
+
+/* =====================================
+   VARIABLES GLOBALES - ROLLING CODE
+===================================== */
+
 :root {
-  --rc-red: #e0202a;
-  --rc-red-dark: #a50d14;
-  --rc-red-deep: #6e070c;
-  --rc-black: #0b0b0c;
-  --rc-surface: #111113;
-  --rc-surface-2: #26262a;
-  --rc-border: #2c2c31;
-  --rc-white: #ffffff;
-  --rc-text-soft: #d4d4d8;
-  --rc-text-mute: #a1a1aa;
-  --rc-gradient: linear-gradient(160deg,#e0202a 0%, #a50d14 55%, #6e070c 100%);
-  /* Así le decís a Bootstrap que use tus colores */
-  --bs-body-bg: var(--rc-black);
-  --bs-body-color: var(--rc-white);
-  --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    --rc-red: #e0202a;
+    --rc-red-dark: #a50d14;
+    --rc-red-deep: #6e070c;
+
+    --rc-black: #0b0b0c;
+    --rc-surface: #111113;
+    --rc-surface-2: #26262a;
+    --rc-border: #2c2c31;
+
+    --rc-white: #ffffff;
+    --rc-text-soft: #d4d4d8;
+    --rc-text-mute: #a1a1aa;
+
+    --rc-gradient: linear-gradient(
+        160deg,
+        #e0202a 0%,
+        #a50d14 55%,
+        #6e070c 100%
+    );
+
+    --bs-body-bg: var(--rc-black);
+    --bs-body-color: var(--rc-white);
+    --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.navbar {
-  padding: 20px 70px 20px 70px;
-  border-bottom: 0.5px solid var(--rc-border);
- }
-.navbar img {
-  width: 150px;
-  height: 40px;
-}
-.navbar .navbar-nav {
-  gap: 20px;
-}
-.navbar .nav-link {
-  --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--rc-white);
-  padding: 10px 20px 20px 50px ;
-}
-.navbar .nav-link.active {
-  
-  color: var(--rc-white);
-}
-.navbar .nav-link2 {
-  padding: 10px 20px ;
-  font-size: small;
-  color: var(--rc-rosaclaro) ;
-  text-decoration: none;
-  border-radius: 20px;
-  background-color: var(--rc-red);
-font-size: 14px;
-
-}
-
-/* .container {
-  max-width: 1200px;
-} */
-
-/* INICIO SECCION AGENDA */
+/* =====================================
+   CONFIGURACIÓN GENERAL
 
 .sectionAgenda {
-  padding: 96px;
-  display: flex;
-  gap: 100px;
-    & .agendaLeft {
-      width: 40%;
-      span {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--rc-red);
-        letter-spacing: 2px;
-      }
-      h2 {
-        font-size: 56px;
-        font-weight: 800;
-        line-height: 1.05;
-        letter-spacing: -1px;
-      }
-      p {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.55;
-        color: var(--rc-text-soft);
-      }
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 96px auto;
+    padding: 0;
+    color: var(--rc-white);
+}
+
+.agendaLeft {
+    flex: 0 0 32%;
+    min-width: 0;
+}
+
+.agendaLeft > span {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--rc-red);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.agendaLeft h2 {
+    margin: 0;
+    color: var(--rc-white);
+    font-size: 34px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.agendaLeft p {
+    margin-top: 18px;
+    color: var(--rc-text-mute);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.agendaRight {
+    flex: 1;
+    min-width: 0;
+}
+
+/* FILAS DE LA AGENDA */
+
+.conteinerLine,
+.conteinerLineEnd {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--rc-border);
+}
+
+.conteinerLineEnd {
+    border-bottom: none;
+}
+
+.horarioCharla {
+    flex: 0 0 62px;
+    color: var(--rc-red);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.temaCharla {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.temaCharla span:first-child {
+    color: var(--rc-white);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.temaCharla span + span {
+    color: var(--rc-text-mute);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* =====================================
+   SECCIONES FUTURAS
+===================================== */
+
+.sectionPrecios,
+.sectionPagos,
+.sectionUbicacion {
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* =====================================
+   FORMULARIOS - ESTILOS BASE
+===================================== */
+
+input,
+select,
+textarea {
+    max-width: 100%;
+    font-family: inherit;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+select {
+    min-height: 48px;
+    padding: 0 16px;
+    color: var(--rc-white);
+    background-color: var(--rc-surface);
+    border: 2px solid #d4d4d8;
+    border-radius: 14px;
+}
+
+textarea {
+    padding: 14px 16px;
+    color: var(--rc-white);
+    background-color: var(--rc-surface);
+    border: 2px solid #d4d4d8;
+    border-radius: 14px;
+}
+
+button {
+    font-family: inherit;
+}
+
+button:not(.btn-close) {
+    cursor: pointer;
+}
+
+/* =====================================
+   RESPONSIVE - TABLETS
+===================================== */
+
+@media (max-width: 1247px) {
+    .workshop-container {
+        width: calc(100% - 48px);
+        max-width: 1200px;
+        margin: 48px auto 20px;
     }
-    & .agendaRight {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      .conteinerLine {
-        border-top: 1px solid var(--rc-border);
-        display: flex;
-        gap: 50px;
-        padding-top: 15px;
-      }
-      .conteinerLineEnd {
-        border-top: 1px solid var(--rc-border);
-        border-bottom: 1px solid var(--rc-border);
-        display: flex;
-        gap: 50px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-      }
-      .horarioCharla {
-        font-variant-numeric: tabular-nums;
-        text-align: left;
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--rc-red);
-      }
-      .temaCharla {
-        display: flex;
-        flex-direction: column;
+
+    .workshop-hero {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+    }
+
+    .sectionAgenda,
+    .sectionPrecios,
+    .sectionPagos,
+    .sectionUbicacion {
+        width: calc(100% - 48px);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .workshop-container {
+        margin-top: 40px;
+    }
+
+    .workshop-hero {
+        padding: 24px;
+    }
+
+    .workshop-hero h1 {
+        font-size: 36px;
+        white-space: normal;
+    }
+
+    .hero-content {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .event-column {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .event-card {
+        padding: 18px;
+    }
+
+    .event-item {
+        gap: 9px;
+    }
+
+    .event-item .event-time {
+        font-size: 21px;
+    }
+
+    .event-item h3 {
+        font-size: 11px;
+    }
+
+    .event-tags {
+        gap: 5px;
+    }
+
+    .event-tags span {
+        padding: 5px 7px;
+        font-size: 8px;
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sectionAgenda {
+        gap: 24px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .agendaLeft {
+        flex-basis: 35%;
+    }
+
+    .agendaLeft h2 {
+        font-size: 29px;
+    }
+}
+
+/* =====================================
+   RESPONSIVE - CELULARES
+===================================== */
+
+@media (max-width: 767.98px) {
+    .workshop-container {
+        width: calc(100% - 48px);
+        margin: 32px auto 20px;
+    }
+
+    /* MÁRGENES LATERALES DE 24 PX */
+
+    .workshop-hero {
+        width: 100%;
+        margin-left: 0;
+        padding: 24px;
+        border-radius: 32px;
+    }
+
+    .workshop-hero .row {
+        --bs-gutter-x: 0;
+    }
+
+    /* APILAR LAS COLUMNAS */
+
+    .workshop-hero .hero-content,
+    .workshop-hero .event-column {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .hero-content {
+        margin-bottom: 24px;
+    }
+
+    .eyebrow {
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .workshop-hero h1 {
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1;
+        letter-spacing: -1px;
+        white-space: normal;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        gap: 8px;
+    }
+
+    .btn-buy,
+    .btn-outline {
+        min-height: 52px;
+        padding: 0 16px;
+        font-size: 10px;
+    }
+
+    .event-card {
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .event-item {
+        gap: 10px;
+    }
+
+    .event-item .event-time {
+        font-size: 21px;
+    }
+
+    .event-item h3 {
+        font-size: 11px;
+    }
+
+    .event-item p:not(.event-time) {
+        font-size: 10px;
+    }
+
+    .event-tags {
+        gap: 6px;
+    }
+
+    .event-tags span {
+        padding: 6px 9px;
+        font-size: 8px;
+    }
+
+    /* ESTADÍSTICAS */
+
+    .stats-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 16px;
+        margin-top: 24px;
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .stat h2 {
         font-size: 22px;
-        font-weight: 600;
-        & span:nth-child(2) {
-          font-size: 14px;
-          font-weight: 400;
-          color: var(--rc-text-soft);
-        }
-      }
+    }
+
+    .stat p {
+        font-size: 10px;
+    }
+
+    /* AGENDA */
+
+    .sectionAgenda {
+        flex-direction: column;
+        gap: 24px;
+        margin: 80px auto;
+    }
+
+    .agendaLeft {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .agendaLeft h2 {
+        font-size: 30px;
+    }
+
+    .agendaLeft p {
+        font-size: 13px;
+    }
+
+    .agendaRight {
+        width: 100%;
+    }
+
+    .conteinerLine,
+    .conteinerLineEnd {
+        gap: 16px;
+        padding: 16px 0;
+    }
+
+    .horarioCharla {
+        flex-basis: 55px;
+        font-size: 12px;
+    }
+
+    .temaCharla span:first-child {
+        font-size: 13px;
+    }
+
+    .temaCharla span + span {
+        font-size: 11px;
+    }
+
+    .sectionPrecios,
+    .sectionPagos,
+    .sectionUbicacion {
+        width: calc(100% - 48px);
+    }
+}
+
+/* =====================================
+   RESPONSIVE - CELULARES PEQUEÑOS
+===================================== */
+
+@media (max-width: 400px) {
+    .workshop-container {
+        width: calc(100% - 48px);
+        padding: 0;
+    }
+
+    .workshop-hero {
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .workshop-hero h1 {
+        font-size: 29px;
+    }
+
+    .event-card {
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .event-item {
+        gap: 8px;
+    }
+
+    .event-icon {
+        flex-basis: 19px;
+        width: 19px;
+        height: 19px;
+    }
+
+    .event-item h2 {
+        font-size: 14px;
+    }
+
+    .event-item .event-time {
+        font-size: 19px;
+    }
+
+    .stats-section {
+        gap: 16px 10px;
+        padding: 16px;
+    }
+
+    .stat h2 {
+        font-size: 20px;
+    }
+
+    .sectionAgenda,
+    .sectionPrecios,
+    .sectionPagos,
+    .sectionUbicacion {
+        width: calc(100% - 48px);
+    }
+
+    .agendaLeft h2 {
+        font-size: 27px;
     }
 }
 
