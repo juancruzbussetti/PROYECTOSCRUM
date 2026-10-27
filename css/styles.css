@@ -55,12 +55,6 @@ body {
 
 /* INICIO SECCION AGENDA */
 
-/* .container {
-  max-width: 1200px;
-} */
-
-/* INICIO SECCION AGENDA */
-
 .sectionAgenda {
   padding: 96px;
   display: flex;
@@ -875,9 +869,82 @@ body {
   }
 }
 
-/* FIN SECCION PASARELA DE PAGOS */
+.comoLlegar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+}
+.ubicacion {
+  display: flex;
+  flex-direction: column;
+}
+.ubicacion p:first-child {
+  color: var(--rc-red);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+.ubicacion  h1 {
+  max-width: 350px;
+  font-weight: 800;
+}
+.ubicacion .material-symbols-outlined {
+   width: 30px;
+  min-width: 25px;
+  color: var(--rc-red);
+}
+.simbolo {
+  display: flex;
+  max-width: 400px;
+  text-decoration: none;
+}
+.ubicacion a p {
+  color: var(--rc-white);
+  font-weight: 600;
+}
+.ubicacion > p:nth-of-type(2) {
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--rc-text-mute);
+    margin-top: -20px;
+}
+.diaHora {
+  display: flex;
+  gap: 20px;
+}
+.diaHora a {
+  font-size: 12px;
+  padding: 5px 10px;
+border-radius: 15px;
+  border: 1px solid var(--rc-surface-2);
+  margin-bottom: 25px;
+}
+.Maps a {
+background-color: var(--rc-red);
+color: var(--rc-white);
+text-decoration: none;
+padding: 10px 15px;
+border-radius: 25px;
+font-weight: 600;
+margin-right: 10px;
+}
+.Maps button {
+color: var(--rc-white);
+background-color: var(--rc-surface);
+border: 2px solid var(--rc-white);
+padding: 5px 10px;
+border-radius: 25px;
+font-weight: 400x;
+margin-right: 10px;
+}
+.mapa iframe {
+  border-radius: 15px;
+  border: 1px solid var(--rc-surface-2);
+  max-height: 350px;
+  max-width: 500px;
+}
 
-/* SPEAKERS */
 
 /* =========================================
    SECCIÓN SPEAKERS
