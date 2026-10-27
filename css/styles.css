@@ -57,117 +57,72 @@ body {
 /* INICIO SECCION AGENDA */
 
 .sectionAgenda {
-    width: 100%;
-    padding: 56px 96px;
-    display: flex;
-    gap: 80px;
-    box-sizing: border-box;
-}
-
-& .agendaLeft {
-  width: 40%;
-  span {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--rc-red);
-    letter-spacing: 2px;
-}
-
-.sectionAgenda .agendaLeft h2 {
-    font-size: 56px;
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -1px;
-    overflow-wrap: break-word;
-}
-
-.sectionAgenda .agendaLeft p {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--rc-text-soft);
-}
-
-.sectionAgenda .agendaRight {
-    width: 60%;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.sectionAgenda .conteinerLine,
-.sectionAgenda .conteinerLineEnd {
-    border-top: 1px solid var(--rc-border);
-    display: flex;
-    align-items: flex-start;
-    gap: 35px;
-    padding-top: 15px;
-}
-
-.sectionAgenda .conteinerLineEnd {
-    border-bottom: 1px solid var(--rc-border);
-    padding-bottom: 15px;
-}
-
-.sectionAgenda .horarioCharla {
-    flex-shrink: 0;
-    min-width: 75px;
-  }
-  
- .agendaRight {
-  width: 60%;
+  padding: 96px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  }
-  .conteinerLine {
-    border-top: 1px solid var(--rc-border);
-    display: flex;
-    gap: 50px;
-    padding-top: 15px;
-  }
-  .conteinerLineEnd {
-    border-top: 1px solid var(--rc-border);
-    border-bottom: 1px solid var(--rc-border);
-    display: flex;
-    gap: 50px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  .horarioCharla {
-    font-variant-numeric: tabular-nums;
-    text-align: left;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--rc-red);
-}
-
-.sectionAgenda .temaCharla {
-    min-width: 0;
-  }
-  .temaCharla {
-    display: flex;
-    flex-direction: column;
-    font-size: 22px;
-    font-weight: 600;
-    overflow-wrap: break-word;
-}
-
-.sectionAgenda .temaCharla span:nth-child(2) {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--rc-text-soft);
-}
-    /* FIN SECCION AGENDA  */
-
-    & span:nth-child(2) {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--rc-text-soft);
+  gap: 100px;
+    & .agendaLeft {
+      width: 40%;
+      span {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--rc-red);
+        letter-spacing: 2px;
+      }
+      h2 {
+        font-size: 56px;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -1px;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: var(--rc-text-soft);
+      }
     }
-  }
+    & .agendaRight {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .conteinerLine {
+        border-top: 1px solid var(--rc-border);
+        display: flex;
+        gap: 50px;
+        padding-top: 15px;
+      }
+      .conteinerLineEnd {
+        border-top: 1px solid var(--rc-border);
+        border-bottom: 1px solid var(--rc-border);
+        display: flex;
+        gap: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .horarioCharla {
+        font-variant-numeric: tabular-nums;
+        text-align: left;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--rc-red);
+      }
+      .temaCharla {
+        display: flex;
+        flex-direction: column;
+        font-size: 22px;
+        font-weight: 600;
+        & span:nth-child(2) {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--rc-text-soft);
+        }
+      }
+    }
+}
 
+
+/* FIN SECCION AGENDA */
 
 .workshop-container {
   display: block;
@@ -682,7 +637,7 @@ body {
 
 .sectionPay {
   width: 100%;
-  padding: 0 24px 96px;
+  padding: 96px 0 96px 0;
   box-sizing: border-box;
 }
 
@@ -837,6 +792,9 @@ body {
         align-items: center;
         gap: 12px;
         padding: 5px 0;
+        & a{
+          text-decoration: none;
+        }
 
         & div:first-child {
           font-size: 16px;
@@ -2393,3 +2351,83 @@ border: none;
     .form-control.is-invalid { border-color: #ff6b6b; background-image: none; }
     .form-control.is-valid   { border-color: #3ddc97; background-image: none; }
     .invalid-feedback        { color: #ff8a8a; font-size: .8rem; }
+
+
+    .rolling-footer {
+  background-color: var(--rc-black);
+  padding: 30px 0;
+  border-top: 0.5px solid var(--rc-border); /* Mismo grosor y color que la navbar */
+  width: 100%;
+}
+
+/* Caja interna alineada simétricamente con el diseño */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 70px; /* Alineado con el padding de tu navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Contenedor del logo en el footer */
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Solución para que tu imagen no se estire y se integre al fondo oscuro */
+.footer-logo img {
+  height: 40px; /* Altura estilizada para el isotipo */
+  width: auto;  /* Evita que el logo se deforme horizontalmente */
+  display: block;
+  mix-blend-mode: multiply; /* Fusiona el recuadro eliminando el fondo */
+}
+
+/* Invierte los colores del bloque del logo para pasar las líneas a blanco nativo */
+.rolling-footer .footer-logo {
+  filter: invert(1);
+}
+
+/* Contenedor de las redes */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+/* Esferas de los iconos en armonía con la paleta */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--rc-surface); /* Fondo oscuro suave */
+  color: var(--rc-text-mute); /* Iconos gris suave por defecto */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Tamaño de los SVG dentro del círculo */
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Efecto hover interactivo usando el color corporativo */
+.social-icon:hover {
+  background-color: var(--rc-red); /* Cambia al rojo de la marca */
+  color: var(--rc-white); /* El icono se vuelve blanco */
+}
+
+/* Adaptación responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
