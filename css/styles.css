@@ -58,69 +58,219 @@ font-size: 14px;
 /* INICIO SECCION AGENDA */
 
 .sectionAgenda {
-  padding: 96px;
-  display: flex;
-  gap: 100px;}
-    & .agendaLeft {
-      width: 40%;
-      span {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--rc-red);
-        letter-spacing: 2px;
-      }
-      h2 {
-        font-size: 56px;
-        font-weight: 800;
-        line-height: 1.05;
-        letter-spacing: -1px;
-      }
-      p {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.55;
-        color: var(--rc-text-soft);
-      }
-    }
-    & .agendaRight {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      .conteinerLine {
-        border-top: 1px solid var(--rc-border);
-        display: flex;
-        gap: 50px;
-        padding-top: 15px;
-      }
-      .conteinerLineEnd {
-        border-top: 1px solid var(--rc-border);
-        border-bottom: 1px solid var(--rc-border);
-        display: flex;
-        gap: 50px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-      }
-      .horarioCharla {
-        font-variant-numeric: tabular-nums;
-        text-align: left;
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--rc-red);
-      }
-      .temaCharla {
-        display: flex;
-        flex-direction: column;
-        font-size: 22px;
-        font-weight: 600;
-        & span:nth-child(2) {
-          font-size: 14px;
-          font-weight: 400;
-          color: var(--rc-text-soft);
-        }
-      }
+    width: 100%;
+    padding: 96px;
+    display: flex;
+    gap: 80px;
+    box-sizing: border-box;
+}
+
+.sectionAgenda .agendaLeft {
+    width: 40%;
+    min-width: 0;
+}
+
+.sectionAgenda .agendaLeft span {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--rc-red);
+    letter-spacing: 2px;
+}
+
+.sectionAgenda .agendaLeft h2 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    overflow-wrap: break-word;
+}
+
+.sectionAgenda .agendaLeft p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--rc-text-soft);
+}
+
+.sectionAgenda .agendaRight {
+    width: 60%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionAgenda .conteinerLine,
+.sectionAgenda .conteinerLineEnd {
+    border-top: 1px solid var(--rc-border);
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    padding-top: 15px;
+}
+
+.sectionAgenda .conteinerLineEnd {
+    border-bottom: 1px solid var(--rc-border);
+    padding-bottom: 15px;
+}
+
+.sectionAgenda .horarioCharla {
+    flex-shrink: 0;
+    min-width: 75px;
+    font-variant-numeric: tabular-nums;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--rc-red);
+}
+
+.sectionAgenda .temaCharla {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
+.sectionAgenda .temaCharla span:nth-child(2) {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--rc-text-soft);
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 1024px) {
+    .sectionAgenda {
+        padding: 70px 40px;
+        gap: 45px;
     }
 
+    .sectionAgenda .agendaLeft {
+        width: 38%;
+    }
+
+    .sectionAgenda .agendaLeft h2 {
+        font-size: 42px;
+    }
+
+    .sectionAgenda .agendaLeft p {
+        font-size: 16px;
+    }
+
+    .sectionAgenda .agendaRight {
+        width: 62%;
+        gap: 18px;
+    }
+
+    .sectionAgenda .conteinerLine,
+    .sectionAgenda .conteinerLineEnd {
+        gap: 20px;
+    }
+
+    .sectionAgenda .horarioCharla {
+        min-width: 65px;
+        font-size: 21px;
+    }
+
+    .sectionAgenda .temaCharla {
+        font-size: 18px;
+    }
+}
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 700px) {
+    .sectionAgenda {
+        padding: 55px 24px;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .sectionAgenda .agendaLeft {
+        width: 100%;
+    }
+
+    .sectionAgenda .agendaLeft h2 {
+        font-size: 38px;
+        line-height: 1.1;
+    }
+
+    .sectionAgenda .agendaLeft p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .sectionAgenda .agendaRight {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .sectionAgenda .conteinerLine,
+    .sectionAgenda .conteinerLineEnd {
+        gap: 16px;
+        padding-top: 14px;
+    }
+
+    .sectionAgenda .conteinerLineEnd {
+        padding-bottom: 14px;
+    }
+
+    .sectionAgenda .horarioCharla {
+        min-width: 55px;
+        font-size: 18px;
+    }
+
+    .sectionAgenda .temaCharla {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .sectionAgenda .temaCharla span:nth-child(2) {
+        margin-top: 3px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+    .sectionAgenda {
+        padding: 45px 18px;
+        gap: 30px;
+    }
+
+    .sectionAgenda .agendaLeft h2 {
+        font-size: 32px;
+    }
+
+    .sectionAgenda .horarioCharla {
+        min-width: 48px;
+        font-size: 16px;
+    }
+
+    .sectionAgenda .conteinerLine,
+    .sectionAgenda .conteinerLineEnd {
+        gap: 12px;
+    }
+
+    .sectionAgenda .temaCharla {
+        font-size: 15px;
+    }
+
+    .sectionAgenda .temaCharla span:nth-child(2) {
+        font-size: 12px;
+    }
+}
+
+    /* FIN SECCION AGENDA  */
 
 .workshop-container {
     display: block;
@@ -632,128 +782,182 @@ font-size: 14px;
 /* FIN SECCION AGENDA */
 
 /* INICIO SECCION PASARELA DE PAGOS */
-.sectionPay{
-  padding-bottom: 96px;
+
+
+.sectionPay {
+  width: 100%;
+  padding: 0 24px 96px;
+  box-sizing: border-box;
 }
+
 .containerPay {
-  width: 1312px;
-  background: linear-gradient(160deg,#e0202a 0%, #a50d14 55%, #6e070c 100%);
+  width: 100%;
+  max-width: 1312px;
+  box-sizing: border-box;
+  background: linear-gradient(160deg, #e0202a 0%, #a50d14 55%, #6e070c 100%);
   margin-inline: auto;
   padding: 56px;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  & .secureBuy{
+
+  & .secureBuy {
     display: flex;
     justify-content: space-between;
-      & div:first-child{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        span{
-          font-size: 18px;
-          font-weight: 800;
-          letter-spacing: 1.55px;
-        }
-        h2{
-          font-size: 64px;
-          font-weight: 800;
-          line-height: 1.03;
-          letter-spacing: -1px;
-        }
-      }
-      & div:last-child{
-        display: flex;
-        align-items: end;
-        gap: 10px;
-          & button {
-            border-radius: 999px;
-            padding: 5px 15px 5px 15px;
-            background-color: transparent;
-            color: white;
-            border: 1px solid var(--rc-white);
-            font-size: 16px;
-            font-weight: 800;
-            &:hover{
-              background-color: var(--rc-black);
-            }
-          }
-      }
-  }
-  & .downPay{
-    display: flex;
+    align-items: flex-end;
     gap: 24px;
-    & .Entry{
+
+    & div:first-child {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+
+      & span {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 1.55px;
+      }
+
+      & h2 {
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 1.03;
+        letter-spacing: -1px;
+        margin: 0;
+      }
+    }
+
+    & div:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+      flex-shrink: 0;
+
+      & button {
+        border-radius: 999px;
+        padding: 5px 15px;
+        background-color: transparent;
+        color: white;
+        border: 1px solid var(--rc-white);
+        font-size: 16px;
+        font-weight: 800;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--rc-black);
+        }
+      }
+    }
+  }
+
+  & .downPay {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    min-width: 0;
+
+    & .Entry {
       width: 60%;
+      min-width: 0;
+      box-sizing: border-box;
       padding: 30px;
-      background-color:var(--rc-white);
+      background-color: var(--rc-white);
       color: var(--rc-black);
       border-radius: 28px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      & h3{
-          font-size: 25px;
-          font-weight: 800;
+
+      & h3 {
+        font-size: 25px;
+        font-weight: 800;
+        margin: 0 0 6px;
       }
+
       & .option {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        & .optionEntry{
+
+        & .optionEntry {
           display: flex;
-          border: 1px solid var(--rc-black);
-          border-radius: 20px;
+          gap: 12px;
           border: 2px solid var(--rc-text-soft);
+          border-radius: 20px;
           padding: 12px;
           justify-content: space-between;
           align-items: center;
-          & div:first-child{
+          min-width: 0;
+          transition: background-color 0.2s ease;
+
+          & div:first-child {
             display: flex;
             flex-direction: column;
-            & .titleOption{
+            min-width: 0;
+
+            & .titleOption {
               font-size: 18px;
               font-weight: 800;
             }
-            & .descriptionOption{
+
+            & .descriptionOption {
               font-size: 14px;
               font-weight: 400;
               color: var(--rc-text-mute);
+              overflow-wrap: anywhere;
             }
           }
-          & div:last-child{
-            .priceOption{
+
+          & div:last-child {
+            flex-shrink: 0;
+
+            & .priceOption {
               font-size: 20px;
               font-weight: 800;
+              white-space: nowrap;
             }
           }
-          &:hover{
+
+          &:hover {
             background-color: var(--rc-black);
+
             & .titleOption,
-            & .priceOption{
+            & .priceOption {
               color: var(--rc-white);
             }
           }
         }
       }
-      & .cantEntry{
+
+      & .cantEntry {
         display: flex;
         justify-content: space-between;
-        padding: 5px 0 5px 0;
-        & div:first-child{
+        align-items: center;
+        gap: 12px;
+        padding: 5px 0;
+
+        & div:first-child {
           font-size: 16px;
           font-weight: 800;
           display: flex;
           align-items: center;
         }
-        & div:last-child{
+
+        & div:last-child {
           display: flex;
           gap: 20px;
           align-items: center;
+
           & button {
             width: 40px;
             height: 40px;
+            flex-shrink: 0;
             border-radius: 50%;
             background-color: transparent;
             color: var(--rc-black);
@@ -761,116 +965,488 @@ font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            & span{
+            cursor: pointer;
+
+            & span {
               font-size: 22px;
               font-weight: 800;
             }
           }
-          & span{
-              font-size: 22px;
-              font-weight: 800;
+
+          & span {
+            font-size: 22px;
+            font-weight: 800;
           }
         }
       }
-      & .continueEntry{
+
+      & .continueEntry {
+        width: 100%;
         background-color: var(--rc-black);
         color: var(--rc-white);
-        height: 60px;
+        min-height: 60px;
+        padding: 12px 20px;
         border-radius: 999px;
         font-size: 18px;
         font-weight: 800;
         border: none;
+        cursor: pointer;
       }
-      .spanEntry{
+
+      & .spanEntry {
         padding-top: 10px;
         font-size: 14px;
         font-weight: 400;
+        line-height: 1.5;
         color: var(--rc-text-mute);
         display: flex;
         align-items: center;
       }
     }
-    & .Order{
+
+    & .Order {
       width: 40%;
-      height: 50%;
+      min-width: 0;
+      box-sizing: border-box;
       padding: 30px;
       background-color: var(--rc-black);
+      color: var(--rc-white);
       border-radius: 28px;
-      & .upOrder{
-        & div:first-child{
+
+      & .upOrder {
+        & div:first-child {
           color: var(--rc-red);
           font-size: 14px;
           font-weight: 600;
           letter-spacing: 1.55px;
           padding-bottom: 10px;
         }
-        & div:last-child{
-          h3{
+
+        & div:last-child {
+          & h3 {
             font-size: 22px;
             font-weight: 800;
+            line-height: 1.3;
+            overflow-wrap: anywhere;
+            margin: 0 0 8px;
           }
-          p{
+
+          & p {
             font-size: 14px;
             font-weight: 400;
+            line-height: 1.5;
             color: var(--rc-text-mute);
+            margin: 0 0 20px;
           }
         }
       }
-      & .centerOrder{
+
+      & .centerOrder {
         border-top: 1px solid var(--rc-border);
         border-bottom: 1px solid var(--rc-border);
-        padding: 20px 0 20px 0;
+        padding: 20px 0;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        & div{
+
+        & div {
           display: flex;
           justify-content: space-between;
+          align-items: flex-start;
+          gap: 12px;
           font-size: 16px;
           font-weight: 400;
           letter-spacing: -0.5px;
+
+          & span:last-child {
+            flex-shrink: 0;
+            white-space: nowrap;
+          }
         }
-        & .serviceCharge{
-              color: var(--rc-text-mute);
+
+        & .serviceCharge {
+          color: var(--rc-text-mute);
         }
       }
-      & .downOrder{
+
+      & .downOrder {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        & div:first-child{
+
+        & div:first-child {
           padding-top: 10px;
           display: flex;
           justify-content: space-between;
-          & .totalDownOrder{
+          align-items: flex-end;
+          gap: 12px;
+
+          & .totalDownOrder {
             font-size: 18px;
             font-weight: 800;
             display: flex;
             align-items: end;
           }
-          & .priceDownOrder{
+
+          & .priceDownOrder {
             font-size: 30px;
             font-weight: 800;
+            white-space: nowrap;
           }
         }
-        & div:last-child{
+
+        & div:last-child {
           display: flex;
           gap: 10px;
           font-size: 14px;
           font-weight: 400;
+          line-height: 1.5;
           color: var(--rc-text-mute);
           align-items: center;
-          svg{
+
+          & svg {
             color: var(--rc-red);
             width: 18px;
             height: 18px;
+            flex-shrink: 0;
           }
         }
       }
     }
   }
-
 }
+
+/* =========================================
+   NOTEBOOKS Y TABLETS GRANDES
+========================================= */
+
+@media (max-width: 1200px) {
+  .sectionPay {
+    padding-inline: 20px;
+  }
+
+  .containerPay {
+    padding: 40px;
+    border-radius: 32px;
+
+    & .secureBuy {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 22px;
+
+      & div:first-child {
+        & h2 {
+          font-size: 54px;
+        }
+      }
+
+      & div:last-child {
+        justify-content: flex-start;
+      }
+    }
+
+    & .downPay {
+      gap: 20px;
+
+      & .Entry {
+        width: 56%;
+        padding: 24px;
+      }
+
+      & .Order {
+        width: 44%;
+        padding: 24px;
+      }
+    }
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+  .sectionPay {
+    padding: 0 18px 72px;
+  }
+
+  .containerPay {
+    padding: 32px;
+    border-radius: 28px;
+    gap: 26px;
+
+    & .secureBuy {
+      & div:first-child {
+        & span {
+          font-size: 15px;
+        }
+
+        & h2 {
+          font-size: 46px;
+        }
+      }
+
+      & div:last-child {
+        gap: 8px;
+
+        & button {
+          font-size: 14px;
+          padding: 7px 12px;
+        }
+      }
+    }
+
+    & .downPay {
+      flex-direction: column;
+      gap: 20px;
+
+      & .Entry,
+      & .Order {
+        width: 100%;
+      }
+
+      & .Entry {
+        padding: 26px;
+      }
+
+      & .Order {
+        padding: 26px;
+      }
+    }
+  }
+}
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+  .sectionPay {
+    padding: 0 12px 48px;
+  }
+
+  .containerPay {
+    padding: 22px 16px;
+    border-radius: 22px;
+    gap: 22px;
+
+    & .secureBuy {
+      gap: 18px;
+
+      & div:first-child {
+        gap: 8px;
+
+        & span {
+          font-size: 12px;
+          letter-spacing: 1.2px;
+        }
+
+        & h2 {
+          font-size: clamp(30px, 8vw, 40px);
+          line-height: 1.08;
+          letter-spacing: -0.7px;
+        }
+      }
+
+      & div:last-child {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+
+        & button {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 9px 8px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    & .downPay {
+      gap: 16px;
+
+      & .Entry {
+        padding: 20px 16px;
+        border-radius: 20px;
+        gap: 12px;
+
+        & h3 {
+          font-size: 22px;
+        }
+
+        & .option {
+          gap: 9px;
+
+          & .optionEntry {
+            padding: 12px 10px;
+            gap: 8px;
+            border-radius: 15px;
+
+            & div:first-child {
+              & .titleOption {
+                font-size: 16px;
+              }
+
+              & .descriptionOption {
+                font-size: 12px;
+                line-height: 1.4;
+              }
+            }
+
+            & div:last-child {
+              & .priceOption {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+
+        & .cantEntry {
+          & div:first-child {
+            font-size: 14px;
+          }
+
+          & div:last-child {
+            gap: 14px;
+
+            & button {
+              width: 36px;
+              height: 36px;
+            }
+
+            & span {
+              font-size: 19px;
+            }
+          }
+        }
+
+        & .continueEntry {
+          min-height: 52px;
+          font-size: 16px;
+        }
+
+        & .spanEntry {
+          font-size: 12px;
+        }
+      }
+
+      & .Order {
+        padding: 20px 16px;
+        border-radius: 20px;
+
+        & .upOrder {
+          & div:first-child {
+            font-size: 12px;
+          }
+
+          & div:last-child {
+            & h3 {
+              font-size: 20px;
+            }
+
+            & p {
+              font-size: 13px;
+              margin-bottom: 16px;
+            }
+          }
+        }
+
+        & .centerOrder {
+          padding: 16px 0;
+          gap: 16px;
+
+          & div {
+            font-size: 13px;
+            letter-spacing: 0;
+            gap: 8px;
+          }
+        }
+
+        & .downOrder {
+          gap: 14px;
+
+          & div:first-child {
+            & .totalDownOrder {
+              font-size: 16px;
+            }
+
+            & .priceDownOrder {
+              font-size: 25px;
+            }
+          }
+
+          & div:last-child {
+            align-items: flex-start;
+            font-size: 12px;
+
+            & svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =========================================
+   CELULARES MUY ANGOSTOS
+========================================= */
+
+@media (max-width: 360px) {
+  .containerPay {
+    padding: 18px 12px;
+
+    & .secureBuy {
+      & div:first-child {
+        & h2 {
+          font-size: 29px;
+        }
+      }
+    }
+
+    & .downPay {
+      & .Entry {
+        padding: 16px 12px;
+
+        & .option {
+          & .optionEntry {
+            & div:first-child {
+              & .titleOption {
+                font-size: 15px;
+              }
+
+              & .descriptionOption {
+                font-size: 11px;
+              }
+            }
+
+            & div:last-child {
+              & .priceOption {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      & .Order {
+        padding: 16px 12px;
+
+        & .downOrder {
+          & div:first-child {
+            & .priceDownOrder {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 
 /* FIN SECCION PASARELA DE PAGOS */
