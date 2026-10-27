@@ -1139,3 +1139,82 @@ font-size: 14px;
 /* =========================================
    FIN SECCIÓN SPEAKERS
 ========================================= */
+
+.rolling-footer {
+  background-color: var(--rc-black);
+  padding: 30px 0;
+  border-top: 0.5px solid var(--rc-border); /* Mismo grosor y color que la navbar */
+  width: 100%;
+}
+
+/* Caja interna alineada simétricamente con el diseño */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 70px; /* Alineado con el padding de tu navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Contenedor del logo en el footer */
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Solución para que tu imagen no se estire y se integre al fondo oscuro */
+.footer-logo img {
+  height: 40px; /* Altura estilizada para el isotipo */
+  width: auto;  /* Evita que el logo se deforme horizontalmente */
+  display: block;
+  mix-blend-mode: multiply; /* Fusiona el recuadro eliminando el fondo */
+}
+
+/* Invierte los colores del bloque del logo para pasar las líneas a blanco nativo */
+.rolling-footer .footer-logo {
+  filter: invert(1);
+}
+
+/* Contenedor de las redes */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+/* Esferas de los iconos en armonía con la paleta */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--rc-surface); /* Fondo oscuro suave */
+  color: var(--rc-text-mute); /* Iconos gris suave por defecto */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Tamaño de los SVG dentro del círculo */
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Efecto hover interactivo usando el color corporativo */
+.social-icon:hover {
+  background-color: var(--rc-red); /* Cambia al rojo de la marca */
+  color: var(--rc-white); /* El icono se vuelve blanco */
+}
+
+/* Adaptación responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
