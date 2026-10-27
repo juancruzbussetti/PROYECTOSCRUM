@@ -52,8 +52,6 @@ body {
   background-color: var(--rc-red);
   font-size: 14px;
 }
-
-
 /* INICIO SECCION AGENDA */
 
 .sectionAgenda {
@@ -183,6 +181,338 @@ body {
   }
 }
 
+.partners {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ---------- Colores de texto reutilizables ---------- */
+.red    { color: #ef4444; }
+.orange { color: #f97316; }
+.yellow { color: #facc15; }
+.gold   { color: #f5a623; }
+.bronze { color: #f08a24; }
+
+/* ---------- Encabezado de cada nivel ---------- */
+.tier-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tier-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #3a3a3f;
+  background: #18181b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tier-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tier-title {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.tier-badge {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.badge-red {
+  color: #ef4444;
+  border-color: #7f2a2a;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.badge-gold {
+  color: #f5a623;
+  border-color: #6b4a12;
+  background: rgba(245, 166, 35, 0.12);
+}
+
+.badge-bronze {
+  color: #f08a24;
+  border-color: #6b3e12;
+  background: rgba(240, 138, 36, 0.12);
+}
+
+.tier-subtitle {
+  font-size: 12px;
+  color: #8b8b93;
+  margin-top: 4px;
+}
+
+/* ---------- Caja del logo (se usa en las 3 secciones) ---------- */
+.logo-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  background: #16161a;
+  border: 1px solid #2a2a30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+}
+
+/* Colores de cada ícono */
+.icon-google       { color: #ea4335; }
+.icon-aws          { color: #ff9900; }
+.icon-ml           { color: #ffe600; }
+.icon-microsoft    { color: #00a4ef; }
+.icon-white        { color: #ffffff; }
+.icon-auth0        { color: #eb5424; }
+.icon-supabase     { color: #3ecf8e; }
+.icon-digitalocean { color: #0080ff; }
+.icon-cloudflare   { color: #f38020; }
+.icon-mongodb      { color: #47a248; }
+.icon-docker       { color: #2496ed; }
+.icon-stripe       { color: #635bff; }
+.icon-postman      { color: #ff6c37; }
+
+/* ================= MAIN PARTNERS ================= */
+.main-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.main-card {
+  flex: 1;
+  background: linear-gradient(180deg, #1a1a1d, #0f0f11);
+  border: 2px solid;
+  border-radius: 24px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.card-red {
+  border-color: #e5484d;
+  box-shadow: 0 0 25px rgba(229, 72, 77, 0.15);
+}
+
+.card-orange {
+  border-color: #d9742b;
+  box-shadow: 0 0 25px rgba(217, 116, 43, 0.12);
+}
+
+.card-yellow {
+  border-color: #f5c518;
+  box-shadow: 0 0 25px rgba(245, 197, 24, 0.18);
+}
+
+.card-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.tag-red {
+  color: #ef4444;
+  border-color: #7f2a2a;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.tag-orange {
+  color: #f97316;
+  border-color: #7a3a12;
+  background: rgba(249, 115, 22, 0.12);
+}
+
+.tag-yellow {
+  color: #facc15;
+  border-color: #7a6410;
+  background: rgba(250, 204, 21, 0.12);
+}
+
+.arrow-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #3a3a3f;
+  background: #1c1c20;
+  color: #9a9aa2;
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-card .logo-box {
+  margin: 14px 0 6px;
+}
+
+.main-card h3 {
+  font-size: 24px;
+}
+
+.main-card p {
+  font-size: 12px;
+  color: #8b8b93;
+  line-height: 1.5;
+}
+
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 14px;
+  font-size: 11px;
+}
+
+.footer-left {
+  color: #8b8b93;
+}
+
+.footer-right {
+  font-weight: bold;
+  font-family: monospace;
+}
+
+/* ================= GOLD TIER ================= */
+.gold-cards {
+  display: flex;
+  gap: 16px;
+}
+
+.gold-card {
+  flex: 1;
+  background: #121214;
+  border: 1px solid #3a2f1a;
+  border-radius: 16px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.gold-card .logo-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.gold-card h4 {
+  font-size: 14px;
+}
+
+.gold-card p {
+  font-size: 11px;
+  color: #8b8b93;
+}
+
+.pill {
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid;
+  margin-top: 6px;
+}
+
+.pill-orange {
+  color: #f59e0b;
+  border-color: #6b4a12;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.pill-green {
+  color: #84cc16;
+  border-color: #3a5214;
+  background: rgba(132, 204, 22, 0.1);
+}
+
+/* ================= BRONZE TIER ================= */
+.bronze-cards {
+  display: flex;
+  gap: 12px;
+}
+
+.bronze-card {
+  flex: 1;
+  background: #121214;
+  border: 1px solid #2a2a30;
+  border-radius: 14px;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.bronze-card .logo-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.bronze-card h5 {
+  font-size: 12px;
+}
+
+.bronze-card p {
+  font-size: 10px;
+  color: #8b8b93;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .main-cards {
+    flex-direction: column;
+  }
+
+  .gold-cards,
+  .bronze-cards {
+    flex-wrap: wrap;
+  }
+
+  .gold-card {
+    flex: 1 1 40%;
+  }
+
+  .bronze-card {
+    flex: 1 1 28%;
+  }
+}
 .workshop-container {
   display: block;
   width: 100%;
