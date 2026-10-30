@@ -1254,13 +1254,21 @@ body {
               font-weight: 800;
             }
           }
-          &:hover {
+          cursor: pointer;
+  user-select: none;
+          &:hover,
+          &.activa {
             background-color: var(--rc-black);
             & .titleOption,
             & .priceOption {
               color: var(--rc-white);
             }
           }
+
+          &.activa {
+            border-color: var(--rc-red);
+          }
+        }
         }
       }
       & .cantEntry {
