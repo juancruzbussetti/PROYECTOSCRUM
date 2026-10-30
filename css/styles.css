@@ -1905,45 +1905,6 @@ body {
 
 /* =========================================
    CELULARES MUY ANGOSTOS
-========================================= */
-
-@media (max-width: 360px) {
-  .containerPay {
-    padding: 18px 10px;
-  }
-
-  .containerPay .secureBuy > div:first-child h2 {
-    font-size: 28px;
-  }
-
-  .containerPay .downPay .Entry,
-  .containerPay .downPay .Order {
-    padding: 16px 10px;
-  }
-
-  .containerPay .downPay .Entry .option .optionEntry {
-    padding: 10px 8px;
-    gap: 6px;
-  }
-
-  .containerPay .downPay .Entry .option .optionEntry .titleOption {
-    font-size: 14px;
-  }
-
-  .containerPay .downPay .Entry .option .optionEntry .descriptionOption {
-    font-size: 11px;
-  }
-
-  .containerPay .downPay .Entry .option .optionEntry .priceOption {
-    font-size: 13px;
-  }
-
-  .containerPay .downPay .Entry .cantEntry > div:last-child {
-    gap: 9px;
-  }
-
-  .containerPay .downPay .Order .downOrder .priceDownOrder {
-    font-size: 21px;
   }
 }
 
@@ -3371,5 +3332,453 @@ border: none;
     flex-direction: column;
     text-align: center;
     padding: 0 20px;
+  }
+}
+.modal-header,
+.modal-footer {
+  border: none;
+}
+.checkout-modal {
+  background: var(--rc-surface);
+  color: var(--rc-white);
+  border: 1px solid var(--rc-surface-2);
+  border-radius: 22px;
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.checkout-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 30px 32px 24px;
+  border: none;
+}
+.checkout-header > div {
+  min-width: 0;
+}
+.checkout-header .modal-title {
+  margin: 0 0 8px;
+  color: var(--rc-white);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.checkout-header p {
+  margin: 0;
+  color: var(--rc-text-mute);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.checkout-header .btn-close {
+  filter: invert(1);
+  opacity: .8;
+  flex-shrink: 0;
+}
+.checkout-body {
+  padding: 0 32px 24px;
+}
+.btn-open-checkout {
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--rc-red);
+  color: var(--rc-white);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn-open-checkout:hover {
+  background: var(--rc-red);
+}
+.planS {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 22px 24px;
+  background: var(--rc-surface);
+  border: 1px solid var(--rc-surface-2);
+  border-radius: 20px;
+}
+.planInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.planInfo > p,
+.planD > p {
+  margin: 0 0 10px;
+  color: var(--rc-text-mute);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.planName {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.planInfo h6 {
+  margin: 0;
+  color: var(--rc-white);
+  font-size: 24px;
+  font-weight: 800;
+}
+.planInfo span {
+  color: var(--rc-red);
+  font-size: 10px;
+  font-weight: 800;
+}
+.planD {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  padding-left: 20px;
+  border-left: 1px solid var(--rc-surface);
+  text-align: right;
+}
+.planD > p {
+  white-space: nowrap;
+}
+.planD h4 {
+  margin: 0;
+  color: var(--rc-white);
+  font-size: 27px;
+  font-weight: 800;
+}
+.payment-heading {
+  margin: 34px 0 22px;
+  color: var(--rc-white);
+  font-size: 22px;
+  font-weight: 800;
+}
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+/* Ocultar radios sin impedir su selección */
+.payment-options > .radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* Tarjetas de los métodos */
+.payment-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+  padding: 20px 24px;
+  margin: 0;
+  color: var(--rc-text-soft);
+  background: var(--rc-surface);
+  border: 1px solid var(--rc-surface-2);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border-color .2s ease,
+              background .2s ease;
+}
+.payment-label:hover {
+  background: var(--rc-surface);
+}
+.radio-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border: 3px solid var(--rc-surface-2);
+  border-radius: 50%;
+}
+.radio:checked + .payment-label .radio-indicator {
+  border-color: var(--rc-red-dark);
+  background: var(--rc-red);
+}
+.radio:checked + .payment-label .radio-indicator::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--rc-white);
+  border-radius: 50%;
+}
+.radio:focus-visible + .payment-label {
+  outline: 2px solid var(--rc-white);
+  outline-offset: 3px;
+}
+.payment-icon {
+  color: var(--rc-rosaclaro);
+  font-size: 34px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.payment-method-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.payment-method-text strong {
+  color: var(--rc-white);
+  font-size: 17px;
+  font-weight: 800;
+}
+.payment-method-text small {
+  color: var(--rc-text-mute);
+  font-size: 13px;
+  font-weight: 500;
+}
+#radioMP:checked + .payment-label,
+#radioTarjeta:checked + .payment-label {
+  border: 2px solid var(--rc-red);
+}
+.payment-content {
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Mostrar Mercado Pago */
+#radioMP:checked ~ .mercado-pago {
+  display: block;
+}
+/* Mostrar formulario de tarjeta */
+#radioTarjeta:checked ~ .tarjeta {
+  display: block;
+}
+.mercado-pago {
+  padding: 30px 32px;
+  margin: 12px 0 12px;
+  background: var(--rc-surface);
+  border: 1px solid var(--rc-surface-2);
+  border-radius: 20px;
+}
+.mercado-pago h4 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+.mercado-pago p {
+  margin: 0 0 26px;
+  color: #9ca9bd;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.mercado-pago-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+  min-height: 58px;
+  box-sizing: border-box;
+  padding: 14px 24px;
+  background: var(--rc-red);
+  color: var(--rc-white);
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background .2s ease,
+              transform .2s ease;
+}
+.mercado-pago-btn i {
+  font-size: 22px;
+}
+.mercado-pago-btn:hover {
+  background: var(--rc-red-dark);
+  color: var(--rc-white);
+  transform: translateY(-2px);
+}
+.tarjeta {
+  padding: 26px 24px 12px;
+  margin: 12px 0 12px;
+  background-color: var(--rc-surface);
+  border: 1px solid var(--rc-surface-2);
+  border-radius: 20px;
+}
+.paymentForm {
+  width: 100%;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  min-width: 0;
+}
+.formGroup label {
+  color: var(--rc-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+.formGroup input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid var(--rc-surface-2);
+  border-radius: 10px;
+  outline: none;
+  background-color: var(--rc-surface);
+  color: var(--rc-white);
+  font-size: 14px;
+}
+.formGroup input::placeholder {
+  color: var(--rc-surface-2);
+}
+.formGroup input:focus {
+  border-color: var(--rc-red);
+  box-shadow: 0 0 0 2px rgb(224 32 42 / 15%);
+}
+.formRow {
+  display: flex;
+  gap: 14px;
+}
+.formRow .formGroup {
+  flex: 1;
+}
+.payButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  background: var(--rc-red);
+  color: var(--rc-white);
+  font-weight: 800;
+  cursor: pointer;
+}
+.payButton:hover {
+  background: var(--rc-red);
+}
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 575.98px) {
+  .checkout-header {
+    padding: 24px 20px 20px;
+  }
+
+  .checkout-header .modal-title {
+    font-size: 23px;
+  }
+
+  .checkout-header p {
+    font-size: 13px;
+  }
+
+  .checkout-body {
+    padding: 0 20px 20px;
+  }
+
+  .planS {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .planInfo h6 {
+    font-size: 18px;
+  }
+
+  .planInfo span {
+    font-size: 8px;
+  }
+
+  .planD {
+    padding-left: 12px;
+  }
+
+  .planD h4 {
+    font-size: 20px;
+  }
+
+  .planD > p {
+    font-size: 10px;
+  }
+
+  .payment-heading {
+    margin-top: 26px;
+    font-size: 19px;
+  }
+
+  .payment-label {
+    min-height: 82px;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .payment-icon {
+    font-size: 27px;
+  }
+
+  .payment-method-text strong {
+    font-size: 14px;
+  }
+
+  .payment-method-text small {
+    font-size: 11px;
+  }
+
+  .mercado-pago {
+    padding: 22px 18px;
+    border-radius: 15px;
+  }
+
+  .mercado-pago h4 {
+    font-size: 17px;
+  }
+
+  .mercado-pago p {
+    font-size: 13px;
+  }
+
+  .mercado-pago-btn {
+    max-width: 100%;
+    min-height: 54px;
+  }
+
+  .tarjeta {
+    padding: 20px 15px 10px;
+  }
+
+  .formRow {
+    gap: 10px;
+  }
+
+  .formGroup label {
+    font-size: 12px;
+  }
+
+  .formGroup input {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .checkout-footer {
+    padding: 18px 20px;
   }
 }
