@@ -1105,15 +1105,22 @@ body {
               white-space: nowrap;
             }
           }
+cursor: pointer;
+user-select: none;
 
-          &:hover {
-            background-color: var(--rc-black);
+&:hover,
+&.activa {
+  background-color: var(--rc-black);
 
-            & .titleOption,
-            & .priceOption {
-              color: var(--rc-white);
-            }
-          }
+  & .titleOption,
+  & .priceOption {
+    color: var(--rc-white);
+  }
+}
+
+&.activa {
+  border-color: var(--rc-red);
+}
         }
       }
 
@@ -1844,6 +1851,10 @@ body {
         font-weight: 800;
         border: none;
       }
+      & .continueEntry:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
       .spanEntry {
         padding-top: 10px;
         font-size: 14px;
